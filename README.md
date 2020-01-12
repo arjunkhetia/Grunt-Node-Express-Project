@@ -58,7 +58,23 @@ module.exports = function(grunt) {
   });
   grunt.registerTask('default', ['express', 'watch']);
 };
+```
 
+# Node PortFinder
+
+Node PortFinder is a tool to find an open port or domain socket on the machine.
+
+```js
+var portfinder = require('portfinder');
+var port = 3000;
+var portSpan = 999;
+portfinder.getPort({
+  port: port,    // minimum port number
+  stopPort: port + portSpan // maximum port number
+}, function (err, openPort) {
+  if (err) throw err;
+  port = openPort;
+});
 ```
 
 # Nodejs Cluster
